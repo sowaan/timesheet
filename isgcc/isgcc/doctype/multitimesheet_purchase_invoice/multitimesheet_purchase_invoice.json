@@ -1,0 +1,187 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-26 09:39:22.897471",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_qosh",
+  "company",
+  "supplier",
+  "from_date",
+  "asset",
+  "employee",
+  "column_break_ikds",
+  "item",
+  "to_date",
+  "project",
+  "employee_name",
+  "section_break_wdge",
+  "fetch_timesheets",
+  "timesheets",
+  "section_break_waqr",
+  "total_billable_hours",
+  "total_rgl_hrs",
+  "column_break_mlif",
+  "total_billable_amount",
+  "total_ovtme_hrs",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_qosh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_ikds",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "label": "Asset",
+   "options": "Asset"
+  },
+  {
+   "fieldname": "section_break_wdge",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "timesheets",
+   "fieldtype": "Table",
+   "label": "TimeSheets",
+   "options": "Timesheet Detail",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fetch_timesheets",
+   "fieldtype": "Button",
+   "label": "Fetch Timesheets"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_waqr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_billable_hours",
+   "fieldtype": "Float",
+   "label": "Total Billable Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_billable_amount",
+   "fieldtype": "Currency",
+   "label": "Total Billable Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_mlif",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "MultiTimesheet Purchase Invoice",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_rgl_hrs",
+   "fieldtype": "Float",
+   "label": "Total Regular Hours"
+  },
+  {
+   "fieldname": "total_ovtme_hrs",
+   "fieldtype": "Float",
+   "label": "Total Overtime Hours"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Purchase Invoice",
+   "link_fieldname": "custom_reference"
+  }
+ ],
+ "modified": "2024-04-25 16:08:07.927301",
+ "modified_by": "Administrator",
+ "module": "ISGCC",
+ "name": "MultiTimesheet Purchase Invoice",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

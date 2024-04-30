@@ -1,0 +1,272 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-02-01 19:50:06.235529",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_cl3a",
+  "mobilization",
+  "customer",
+  "sales_order",
+  "from_date",
+  "to_date",
+  "column_break_qhvl",
+  "employee",
+  "asset",
+  "purchase_order",
+  "supplier",
+  "activity_type",
+  "project",
+  "regular_hrs",
+  "show_timesheets",
+  "section_break_ltv8",
+  "time_logs",
+  "section_break_wnjj",
+  "total_hours",
+  "column_break_htqe",
+  "total_regular_hours",
+  "total_overtime_hours",
+  "billing_hours_section",
+  "so_volume",
+  "billing_rate",
+  "column_break_sckj",
+  "billable_hrs",
+  "overtime_billable_hrs",
+  "amended_from",
+  "costing_hours_tab",
+  "po_volume",
+  "costing_rate",
+  "column_break_fvbb",
+  "costing_hrs"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_cl3a",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "mobilization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Mobilization",
+   "options": "Mobilization",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "mobilization.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fetch_from": ".transaction_date",
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order",
+   "options": "Sales Order",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_qhvl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "mobilization.employee",
+   "fetch_if_empty": 1,
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "mobilization.asset",
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "label": "Asset",
+   "options": "Asset",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "sales_order.transaction_date",
+   "fetch_if_empty": 1,
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "show_timesheets",
+   "fieldtype": "Button",
+   "label": "Show Timesheets"
+  },
+  {
+   "fieldname": "section_break_ltv8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "time_logs",
+   "fieldtype": "Table",
+   "label": "Time Sheets",
+   "options": "Timesheet Detail",
+   "reqd": 1
+  },
+  {
+   "fieldname": "activity_type",
+   "fieldtype": "Link",
+   "label": "Activity Type",
+   "options": "Activity Type",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "regular_hrs",
+   "fieldtype": "Int",
+   "label": "Regular Hours"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "billing_hours_section",
+   "fieldtype": "Tab Break",
+   "label": "Billing Hours"
+  },
+  {
+   "fieldname": "so_volume",
+   "fieldtype": "Float",
+   "label": "Sales Order Booking Volume",
+   "read_only": 1
+  },
+  {
+   "fieldname": "billable_hrs",
+   "fieldtype": "Float",
+   "label": "Monthly Regular Billable Hours",
+   "reqd": 1
+  },
+  {
+   "fieldname": "billing_rate",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Billing Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sckj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "overtime_billable_hrs",
+   "fieldtype": "Float",
+   "label": "Monthly Overtime Billable Hours"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "section_break_wnjj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_hours",
+   "fieldtype": "Float",
+   "label": "Total Hours"
+  },
+  {
+   "fieldname": "column_break_htqe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_regular_hours",
+   "fieldtype": "Float",
+   "label": "Total Regular Hours"
+  },
+  {
+   "fieldname": "total_overtime_hours",
+   "fieldtype": "Float",
+   "label": "Total Overtime Hours"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Auto Timesheet Creation",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "purchase_order",
+   "fieldtype": "Link",
+   "label": "Purchase Order",
+   "options": "Purchase Order"
+  },
+  {
+   "fieldname": "costing_hours_tab",
+   "fieldtype": "Tab Break",
+   "label": "Costing Hours"
+  },
+  {
+   "fieldname": "po_volume",
+   "fieldtype": "Float",
+   "label": "Purchase Order Booking Volume"
+  },
+  {
+   "fieldname": "costing_rate",
+   "fieldtype": "Float",
+   "label": "Costing Rate"
+  },
+  {
+   "fieldname": "column_break_fvbb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "costing_hrs",
+   "fieldtype": "Float",
+   "label": "Monthly Costing Hours"
+  },
+  {
+   "fetch_from": "purchase_order.supplier",
+   "fetch_if_empty": 1,
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-04-26 18:07:29.475578",
+ "modified_by": "Administrator",
+ "module": "ISGCC",
+ "name": "Auto Timesheet Creation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
