@@ -21,8 +21,9 @@ class Mobilization(Document):
 def get_mobilization_list(start_date, end_date):
 	mobilizations = frappe.get_all("Mobilization", filters=[
 		["docstatus", "=", 1],
-		["start_date", "Between", [start_date, end_date]]
+		["end_date", "Between", [start_date, end_date]]
 	], fields=["employee", "asset"])
+	print(mobilizations, "mobilizations \n\n\nn\n\n\n\n")
 	employees = []
 	assets = []
 
@@ -30,5 +31,19 @@ def get_mobilization_list(start_date, end_date):
 		if mobilization.employee not in employees:
 			employees.append(mobilization.employee)
 		if mobilization.asset not in assets:
-			assets.append(mobilization.asset)
+			asset_status = frappe.db.get_value("Asset", mobilization.asset, "custom_mobilization_status")
+			if asset_status == "Mobilized":
+				assets.append(mobilization.asset)
+
 	return {"employees": employees, "assets": assets}
+
+
+@frappe.whitelist()
+def demobilize_asset(name, asset):
+	try:
+		frappe.db.set_value('Asset', asset, 'custom_mobilization_status', 'Available')
+		frappe.db.set_value('Mobilization', name, 'demobilized', 1)
+
+		return "Asset Demobilized Successfully"
+	except Exception as e:
+		return e

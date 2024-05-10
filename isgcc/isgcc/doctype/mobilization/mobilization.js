@@ -3,6 +3,12 @@
 
 frappe.ui.form.on("Mobilization", {
   refresh(frm) {
+    // if document is new then set asset and sales order value is not set
+    if (frm.doc.__islocal) {
+      frm.set_value("asset", "");
+      frm.set_value("sales_order", "");
+      frm.trigger("validate_employee_and_asset");
+    }
     frm.set_query("sales_order", function () {
       return {
         filters: [
@@ -11,6 +17,29 @@ frappe.ui.form.on("Mobilization", {
         ],
       };
     });
+    if (frm.doc.docstatus === 1 && !frm.doc.demobilized) {
+      // make demobile button
+      frm.add_custom_button(__("De-Mobilize"), function () {
+        frappe.call({
+          method:
+            "isgcc.isgcc.doctype.mobilization.mobilization.demobilize_asset",
+          args: {
+            name: frm.doc.name,
+            asset: frm.doc.asset,
+          },
+          callback: function (response) {
+            if (response.message) {
+              frappe.msgprint(response.message);
+              frm.reload_doc();
+            }
+          },
+        });
+      });
+    }
+  },
+
+  customer(frm) {
+    frm.set_value("sales_order", "");
   },
 
   start_date(frm) {
@@ -30,7 +59,7 @@ frappe.ui.form.on("Mobilization", {
         },
         callback: function (response) {
           if (response.message) {
-            frm.set_value("employee", "");
+            // frm.set_value("employee", "");
             frm.set_value("asset", "");
             frm.set_query("asset", function () {
               return {
