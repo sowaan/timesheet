@@ -57,7 +57,7 @@ fixtures = [
 				"custom_over_time_hours", "custom_over_time", "custom_parent_name",
                 "custom_total_hrs", "custom_reason", "custom_sales_order", "custom_overtime",
                 "custom_purchase_invoice", "custom_purchase_order", "custom_supplier", 
-                "custom_total_regular_hours", "custom_total_over_time_hours"
+                "custom_total_regular_hours", "custom_total_over_time_hours", "custom_reference"
 				)
 			]
 		]
